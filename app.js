@@ -32,7 +32,7 @@ const getImages = (query) => {
     `https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`
   )
     .then((response) => response.json())
-    .then((data) => showImages(data.hits))
+    .then((data) => showImages(data.hits)) // Error Fixed
     .catch((err) => console.log(err));
 };
 
@@ -43,7 +43,7 @@ const selectItem = (event, img) => {
 
   let item = sliders.indexOf(img);
   if (item === -1) {
-    sliders.push(img);
+    sliders.push(img); // Error Fixed
   } else {
     alert("Hey, Already added !");
   }
@@ -71,6 +71,7 @@ const createSlider = () => {
   imagesArea.style.display = "none";
   const duration = document.getElementById("duration").value || 1000;
   if (duration < 0) {
+    // Error Fixed
     alert("Please enter positive value");
     document.getElementById("duration").value = "";
     return;
